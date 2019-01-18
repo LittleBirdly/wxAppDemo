@@ -1,0 +1,9 @@
+
+{
+  "requestDefaultOptions": {
+    "url": "",
+    "method": "GET",
+    "header": {"content-type": "application/json"},
+    "data": {}
+  }
+}

@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const fwRequest = require('../../common/js/fw_request.js')
 
 Page({
   data: {
@@ -54,7 +55,6 @@ Page({
    
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -64,24 +64,20 @@ Page({
   getJtkjUserInfo: function(){
     //通过微信名称获取后台用户信息
     var wxNickName = this.data.userInfo.nickName
-    console.dir(wxNickName)
     if (wxNickName) {
       var that = this
-      wx.request({
+      fwRequest.request({
         url: 'http://192.168.5.19:8081/jtkj/manage/rest/basedata/employees',
         method: 'GET',
         data: {
           wxNo: wxNickName
         },
-        header: { 'content-type': 'application/json' },
         success: function (res) {
-          console.dir(res.data.rows.length);
           if (!res.data.rows || res.data.rows.length < 1) {
             //TODO 未获取到信息的处理逻辑
             console.dir('未获取到员工信息！');
           } else {
             //通过微信名称获取用户信息成功
-            console.dir(res.data.rows[0]);
             that.setData({
               jtkjUserInfo: res.data.rows[0]
             })
