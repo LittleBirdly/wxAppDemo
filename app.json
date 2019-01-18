@@ -8,5 +8,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "First Application",
     "navigationBarTextStyle":"black"
+  },
+  "networkTimeout": {
+    "request": 3000
   }
 }
