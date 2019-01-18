@@ -16,6 +16,6 @@
   color: #aaa;
 }
 
-.usermotto {
+.login_Bottom {
   margin-top: 200px;
 }
