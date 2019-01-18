@@ -71,7 +71,7 @@ Page({
         url: 'http://192.168.5.19:8081/jtkj/manage/rest/basedata/employees',
         method: 'GET',
         data: {
-          employeeName: wxNickName
+          wxNo: wxNickName
         },
         header: { 'content-type': 'application/json' },
         success: function (res) {
